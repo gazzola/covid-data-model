@@ -43,9 +43,9 @@ def validate_results(result_dir: str) -> None:
     For each state, check that we have a file for each intervention,
     and that the file is non-empty
     """
-    per_state_expected = len(build_params.get_interventions())
     missing_or_empty = []
     for state in US_STATE_ABBREV.values():
+        per_state_expected = len(build_params.get_interventions(state))
         if state in UNSUPPORTED_REGIONS:
             continue
         for i in range(per_state_expected):
